@@ -5,7 +5,39 @@ function showBrigadeSignupForm(button)
     button.style.display = 'none';
 }
 
-$(function(){
+function brigadeAjaxURL(id)
+{
+  return document.location.brigade_base_url+'/overlay-brigade/'+escape(id);
+}
+
+function indexPageURL(brigade_base_url)
+{
+  return brigade_base_url+'/';
+}
+
+function indexAjaxURL(brigade_base_url)
+{
+  return brigade_base_url+'/overlay-home';
+}
+
+function iWantToGoToThere(url)
+{
+  if(history.pushState)
+  {
+      history.pushState({}, '', url);
+  }
+}
+
+if(window.getComputedStyle(document.getElementById('map')).display == 'none')
+{
+  // If the map display is none, we are probably starting with
+  // a narrow screen. Change the body class name to reflect it.
+  document.body.className = document.body.className.replace(/\bunknown-width\b/, ' narrow-screen ');
+  
+} else {
+  // Otherwise, we are probably starting with a wide screen.
+  // Change the body class name to reflect it.
+  document.body.className = document.body.className.replace(/\bunknown-width\b/, ' wide-screen ');
 
   // Leave some room for the header and footer
   $('#map').css("height", ($(window).height() - 200));
@@ -32,13 +64,13 @@ $(function(){
   var geolocate = true, latlon = [35, -100], zoom = 3;
   
   /*
-   * Brigade names and locations are in a hidden list called #brigades-list.
+   * Brigade names and locations are in a hidden list called #brigades-list-mobile.
    *
    * <li data-lat="37.8044" data-lon="-122.2711">
    *    <a href="Open%20Oakland">Open Oakland</a>
    * </li>
    */
-  $('#brigades-list li').each(function(index, _item) {
+  $('#brigades-list-mobile li.organization').each(function(index, _item) {
   
     var item = $(_item),
         active = parseInt(item.data('on')),
@@ -46,7 +78,7 @@ $(function(){
         lon = parseFloat(item.data('lon')),
         id = item.data('id'),
         anchor = item.find('a'),
-        name = anchor.text(),
+        name = item.data('name'),
         href = anchor.attr('href');
         
     var brigade = {
@@ -94,29 +126,6 @@ $(function(){
     map.setView(latlon, zoom);
   }
   
-  function brigadeAjaxURL(id)
-  {
-    return document.location.brigade_base_url+'/overlay-brigade/'+escape(id);
-  }
-  
-  function indexPageURL(brigade_base_url)
-  {
-    return brigade_base_url+'/';
-  }
-  
-  function indexAjaxURL(brigade_base_url)
-  {
-    return brigade_base_url+'/overlay-home';
-  }
-  
-  function iWantToGoToThere(url)
-  {
-    if(history.pushState)
-    {
-        history.pushState({}, '', url);
-    }
-  }
-  
   function updateOverlay(brigade)
   {
     $('#overlay').html('<a href="#" class="button-prominent button-progress"></a>');
@@ -149,5 +158,5 @@ $(function(){
         }
         });
   }
-
-});
+  
+}
