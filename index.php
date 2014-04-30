@@ -12,7 +12,7 @@
 
 <? include('list-brigades.php') ?>
 <div id="map"></div>
-<div id="overlay" class="slab-red">
+<div id="overlay" class="slab-blue">
     <? if($brigade_slug) {
 
       include('overlay-brigade.php');

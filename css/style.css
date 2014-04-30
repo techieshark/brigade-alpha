@@ -36,6 +36,11 @@
   width:30%;
   padding: 25px;
   overflow: auto;
+	color: white;
+}
+
+label {
+	color : white;
 }
 
 /* Story styling */
