@@ -43,8 +43,9 @@
     <p><b>Thanks for signing up to organize in your community.</b></p>
     <p>The next step for you and your team is to watch the recorded Hangout, which walks you through the initial process of starting a Brigade.
     <p><a href='https://www.youtube.com/watch?v=f1oBpGQbdmg'>Click here to view the video.</a></p>
-    <p>Then, you will want to browse through our support materials located at.</p>
-    <p><a href='http://codeforamerica.org/brigade/tools'>http://codeforamerica.org/brigade/tools</a></p>
+    
+    <p>After you watch the video, please </p>
+    <p><a href='https://docs.google.com/a/codeforamerica.org/forms/d/1eQ8WVDj3TIz4wQrM8zk4DN1PLst6Nro5RtZI88xJ2gI/edit?usp=sharing'>fill out this survey so we can share resources with you!</a></p>
     <p>Please reach out to us if you have any questions, and have fun as you start building you civic-tech community! 
     Thanks again and talk to you soon.</p>
     <br>
